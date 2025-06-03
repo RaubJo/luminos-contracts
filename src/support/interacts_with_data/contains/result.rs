@@ -31,9 +31,9 @@ mod tests {
 
     #[test]
     fn test_result_interacts_with_data() {
-        let result = Ok("a");
+        let result: Result<&str, ()> = Ok("a");
 
-        let expected= Ok("a");
+        let expected: Result<&str, ()> = Ok("a");
         assert_eq!(result.all(), expected);
         
         assert!(result.exists(&"a")); 
