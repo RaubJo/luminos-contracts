@@ -1,6 +1,13 @@
 use crate::container::Contract;
 
-pub trait ServiceProvider {
-    fn register(&mut self, container: &mut dyn Contract);
-    fn boot(&mut self, container: &mut dyn Contract);
+pub trait ServiceProvider<C: Contract>: Send + Sync{
+    fn register(&self, container: &C )
+    {
+
+    }
+
+    fn boot(&self, container: &C) 
+    {
+
+    }
 }
