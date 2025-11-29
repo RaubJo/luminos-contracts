@@ -1,7 +1,7 @@
-mod hashmap;
-mod vec;
 mod btreemap;
+mod hashmap;
 mod hashset;
+mod vec;
 // mod btreeset; // unstable_api
 mod array;
 mod linked_list;

@@ -24,7 +24,6 @@ impl<T: Clone + PartialEq> InteractsWithData for Vec<T> {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -32,10 +31,10 @@ mod tests {
     #[test]
     fn test_vec_interacts_with_data() {
         let vec = vec![1, 2, 3, 4];
-        
+
         assert_eq!(vec.all(), vec![1, 2, 3, 4]);
-        
-        assert!(vec.exists(&3)); 
-        assert!(!vec.exists(&5)); 
+
+        assert!(vec.exists(&3));
+        assert!(!vec.exists(&5));
     }
 }

@@ -17,7 +17,6 @@ impl<K: Eq + std::hash::Hash, V: BuildHasher> InteractsWithData for HashSet<K, V
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -30,8 +29,8 @@ mod tests {
 
         let expected_map = HashSet::from(["a", "b"]);
         assert_eq!(map.all(), expected_map);
-        
-        assert!(map.exists(&"b")); 
-        assert!(!map.exists(&"c")); 
+
+        assert!(map.exists(&"b"));
+        assert!(!map.exists(&"c"));
     }
 }

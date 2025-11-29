@@ -17,7 +17,6 @@ impl<T: Clone + PartialEq> InteractsWithData for VecDeque<T> {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;

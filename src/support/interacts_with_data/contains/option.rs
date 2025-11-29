@@ -34,8 +34,8 @@ mod tests {
 
         let expected = Some("a");
         assert_eq!(option.all(), expected);
-        
-        assert!(option.exists(&"a")); 
-        assert!(!option.exists(&"c")); 
+
+        assert!(option.exists(&"a"));
+        assert!(!option.exists(&"c"));
     }
 }

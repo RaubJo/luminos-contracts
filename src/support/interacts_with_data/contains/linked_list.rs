@@ -1,5 +1,5 @@
-use std::collections::LinkedList;
 use super::super::{Contains, InteractsWithData, IntoData};
+use std::collections::LinkedList;
 
 impl<T: PartialEq> Contains<T> for LinkedList<T> {
     fn contains_item(&self, item: &T) -> bool {
@@ -28,8 +28,8 @@ mod tests {
 
         let expected_map = LinkedList::from(["b", "a"]);
         assert_eq!(map.all(), expected_map);
-        
-        assert!(map.exists(&"b")); 
-        assert!(!map.exists(&"c")); 
+
+        assert!(map.exists(&"b"));
+        assert!(!map.exists(&"c"));
     }
 }

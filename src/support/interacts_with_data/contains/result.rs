@@ -24,7 +24,6 @@ impl<T: PartialEq, E> InteractsWithData for Result<T, E> {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -35,8 +34,8 @@ mod tests {
 
         let expected: Result<&str, ()> = Ok("a");
         assert_eq!(result.all(), expected);
-        
-        assert!(result.exists(&"a")); 
-        assert!(!result.exists(&"c")); 
+
+        assert!(result.exists(&"a"));
+        assert!(!result.exists(&"c"));
     }
 }

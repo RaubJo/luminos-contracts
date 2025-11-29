@@ -15,18 +15,17 @@ impl<T, const N: usize> InteractsWithData for [T; N] {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn test_array_interacts_with_data() {
-        let array= vec![1, 2, 3, 4];
-        
+        let array = vec![1, 2, 3, 4];
+
         assert_eq!(array.all(), [1, 2, 3, 4]);
-        
-        assert!(array.exists(&3)); 
-        assert!(!array.exists(&5)); 
+
+        assert!(array.exists(&3));
+        assert!(!array.exists(&5));
     }
 }

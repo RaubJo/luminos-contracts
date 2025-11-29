@@ -29,8 +29,8 @@ mod test {
 
         let expected_map = BTreeMap::from([("a", 1), ("b", 2)]);
         assert_eq!(map.all(), expected_map);
-        
-        assert!(map.exists(&"b")); 
-        assert!(!map.exists(&"c")); 
+
+        assert!(map.exists(&"b"));
+        assert!(!map.exists(&"c"));
     }
 }

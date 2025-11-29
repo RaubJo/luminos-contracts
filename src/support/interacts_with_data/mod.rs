@@ -10,23 +10,32 @@ pub trait InteractsWithData {
     fn data(&self) -> &Self::Value;
 
     /// Get all of the data
-    fn all(&self) -> Self::Value where Self::Value: Clone {
+    fn all(&self) -> Self::Value
+    where
+        Self::Value: Clone,
+    {
         self.data().clone()
     }
 
-    /// Does the data container the key? 
-    fn exists(&self, key: &Self::Item) -> bool where Self::Value: Contains<Self::Item> {
+    /// Does the data container the key?
+    fn exists(&self, key: &Self::Item) -> bool
+    where
+        Self::Value: Contains<Self::Item>,
+    {
         self.data().contains_item(key)
     }
 
     /// Does the data contain the key?
-    fn has(&self, key: &Self::Item) -> bool where Self::Value: Contains<Self::Item> {
+    fn has(&self, key: &Self::Item) -> bool
+    where
+        Self::Value: Contains<Self::Item>,
+    {
         self.exists(key)
     }
 
     /// Execute the closure when the instnce contains the given key.
-    fn when_has<F>(&mut self, key: &Self::Item, mut closure: F ) 
-    where 
+    fn when_has<F>(&mut self, key: &Self::Item, mut closure: F)
+    where
         Self::Value: Contains<Self::Item>,
         F: FnMut(&mut Self),
     {
@@ -49,7 +58,6 @@ pub trait InteractsWithData {
     fn any_filled(&self, keys: Vec<&Self::Item>) -> bool {
         false
     }
-
 }
 
 pub trait IntoData {
@@ -63,7 +71,6 @@ pub trait Contains<T> {
     fn contains_item(&self, item: &T) -> bool;
 }
 
-
 // Test module
 #[cfg(test)]
 mod tests {
@@ -72,11 +79,11 @@ mod tests {
     #[test]
     fn test_vec_interacts_with_data() {
         let vec = vec![1, 2, 3, 4];
-        
+
         assert_eq!(vec.all(), vec![1, 2, 3, 4]);
-        
-        assert!(vec.exists(&3)); 
-        assert!(!vec.exists(&5)); 
+
+        assert!(vec.exists(&3));
+        assert!(!vec.exists(&5));
     }
 
     #[test]
@@ -87,9 +94,9 @@ mod tests {
 
         let expected_map = HashMap::from([("a", 1), ("b", 2)]);
         assert_eq!(map.all(), expected_map);
-        
-        assert!(map.exists(&"b")); 
-        assert!(!map.exists(&"c")); 
+
+        assert!(map.exists(&"b"));
+        assert!(!map.exists(&"c"));
     }
 
     #[test]
@@ -100,8 +107,8 @@ mod tests {
 
         let expected_map = BTreeMap::from([("a", 1), ("b", 2)]);
         assert_eq!(map.all(), expected_map);
-        
-        assert!(map.exists(&"b")); 
-        assert!(!map.exists(&"c")); 
+
+        assert!(map.exists(&"b"));
+        assert!(!map.exists(&"c"));
     }
 }
